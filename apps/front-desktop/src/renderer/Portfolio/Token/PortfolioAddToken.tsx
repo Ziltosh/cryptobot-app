@@ -1,20 +1,20 @@
 import React from 'react'
-import { Button, Select, Text } from '@cryptobot/ui'
-import { TokenDB } from '@cryptobot/db-api'
+import {Button, Select, Text} from '@cryptobot/ui'
+import {TokenDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
 import PortfolioTransactions from '../PortfolioTransactions'
-import { getImageUrl } from '@cryptobot/shared/src/helpers/imageUrl.fn'
-import { useNavigate } from 'react-router-dom'
-import { OptionWithImage } from '@cryptobot/shared/src/ui/select/Option.types'
-import { useMiscStore } from '@cryptobot/shared/src/front-desktop/renderer/stores/MiscStore'
-import { generateId } from '@cryptobot/shared/src/helpers/generateId.fn'
-import { insert, remove, removeWhere, update } from 'blinkdb'
-import { portfolioTokenTable, portfolioTokenTransactionTable } from '@cryptobot/shared/src/blink/Portfolio'
+import {getImageUrl} from '@cryptobot/shared/src/helpers/imageUrl.fn'
+import {useNavigate} from 'react-router-dom'
+import {OptionWithImage} from '@cryptobot/shared/src/ui/select/Option.types'
+import {useMiscStore} from '@cryptobot/shared/src/front-desktop/renderer/stores/MiscStore'
+import {generateId} from '@cryptobot/shared/src/helpers/generateId.fn'
+import {insert, remove, removeWhere, update} from 'blinkdb'
+import {portfolioTokenTable, portfolioTokenTransactionTable} from '@cryptobot/shared/src/blink/Portfolio'
 import {
-	usePortfolios,
-	usePortfolioTokens,
-	usePortfolioTokenTransactions,
+    usePortfolios,
+    usePortfolioTokens,
+    usePortfolioTokenTransactions,
 } from '@cryptobot/shared/src/hooks/blink/portfolio'
-import { Modal } from '@cryptobot/ui/src/Molecules/Modal/Modal'
+import {Modal} from '@cryptobot/ui/src/Molecules/Modal/Modal'
 
 const PortfolioAddToken = (): JSX.Element => {
 	document.title = 'PortfolioAddToken'

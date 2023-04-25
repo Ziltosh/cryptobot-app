@@ -1,10 +1,10 @@
-import { Content, Footer, Header, Icon, Sidebar, Status, Text } from '@cryptobot/ui'
-import { Link, Outlet, useNavigate } from 'react-router-dom'
+import {Content, Footer, Header, Icon, Sidebar, Status, Text} from '@cryptobot/ui'
+import {Link, Outlet, useNavigate} from 'react-router-dom'
 import React from 'react'
-import { FaCalculator, FaRobot, GrTest, IoMdWallet, MdDashboard } from 'react-icons/all'
-import { ProcessStatus } from '@cryptobot/shared/src/front-desktop/preload/Process.types'
-import { useLogStore } from '@cryptobot/shared/src/front-desktop/renderer/stores/LogStore'
-import { useUserStore } from '@cryptobot/shared/src/front-desktop/renderer/stores/UserStore'
+import {FaCalculator, FaRobot, GrTest, IoMdWallet, MdDashboard} from 'react-icons/all'
+import {ProcessStatus} from '@cryptobot/shared/src/front-desktop/preload/Process.types'
+import {useLogStore} from '@cryptobot/shared/src/front-desktop/renderer/stores/LogStore'
+import {useUserStore} from '@cryptobot/shared/src/front-desktop/renderer/stores/UserStore'
 // import { ipcRenderer } from 'electron'
 
 // import { remote } from 'electron'
@@ -90,7 +90,7 @@ function App(): JSX.Element {
 					<Link to={'/portfolio'}>
 						<Icon flex={'col'} icon={<IoMdWallet size={22} />} text={'Portfolio'} />
 					</Link>
-					{(isDev || !isDev) && (
+					{isDev && (
 						<Link to={'/tests'}>
 							<Icon flex={'col'} icon={<GrTest size={22} />} text={'Tests'} />
 						</Link>

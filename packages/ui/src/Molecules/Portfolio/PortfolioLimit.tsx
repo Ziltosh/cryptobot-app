@@ -1,6 +1,6 @@
 import '../../index.css'
-import { twMerge } from 'tailwind-merge'
-import { LimitDB } from '@cryptobot/db-api'
+import {twMerge} from 'tailwind-merge'
+import {LimitDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
 
 const presets = ['default', 'active'] as const
 

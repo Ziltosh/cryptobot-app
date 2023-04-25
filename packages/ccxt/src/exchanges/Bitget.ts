@@ -1,11 +1,13 @@
-import { config } from 'dotenv-mono'
-import { Exchange } from 'ccxt'
-import { CcxtExchange } from './CcxtExchange'
+import {config} from 'dotenv-mono'
+import {Exchange} from 'ccxt'
+import {CcxtExchange} from './CcxtExchange'
 
 config() // Take environment variables from .env
 
 export class Bitget extends CcxtExchange {
+	//@ts-ignore utilisé dans CcxtExchange, ne pas supprimer
 	private instance: Exchange
+
 	public ohlcvHistory = false
 	constructor() {
 		super()

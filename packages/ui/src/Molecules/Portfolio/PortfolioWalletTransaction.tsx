@@ -1,10 +1,10 @@
 import '../../index.css'
 import React from 'react'
-import { BlockchainDB } from '@cryptobot/db-api'
-import { LogoItem } from '../../Atoms/LogoItem/LogoItem'
-import { Currency } from '../../Atoms/Currency/Currency'
-import { GroupOptionWithImage } from '@cryptobot/shared/src/ui/select/Option.types'
-import { PortfolioWalletTransactionsLocalDB } from '@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types'
+import {BlockchainDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
+import {LogoItem} from '../../Atoms/LogoItem/LogoItem'
+import {Currency} from '../../Atoms/Currency/Currency'
+import {GroupOptionWithImage} from '@cryptobot/shared/src/ui/select/Option.types'
+import {PortfolioWalletTransactionsLocalDB} from '@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types'
 
 type PresetProps = {
 	default: {

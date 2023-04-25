@@ -1,6 +1,6 @@
-import { LogoItem } from './LogoItem'
-import { Meta, StoryFn } from '@storybook/react'
-import { ExchangeDB } from '@cryptobot/db-api'
+import {LogoItem} from './LogoItem'
+import {Meta, StoryFn} from '@storybook/react'
+import {ExchangeDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
 
 export default {
 	title: 'Atoms/LogoItem',
