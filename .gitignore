@@ -1,0 +1,16 @@
+node_modules
+.idea
+**/*/.turbo
+**/*/.vscode
+**/*/.DS_Store
+packages/db-api/prisma/data.sqlite
+**/*/*.tsbuildinfo
+/logs/portfolio.log
+.env
+
+# Modules que l'on ne veut pas mettre dans le github open source
+# (pour des raisons de sécurité ou de confidentialité)
+packages/seeding
+packages/db-api
+apps/api
+

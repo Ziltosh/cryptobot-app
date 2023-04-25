@@ -1,0 +1,187 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+    provider = "prisma-client-js"
+    output   = "../node_modules/.prisma/client"
+    // binaryTargets = ["native", "darwin", "darwin-arm64", "windows"]
+}
+
+datasource db {
+    provider = "sqlite"
+    // url      = env("DATABASE_URL")
+    url      = "file:/Users/nicolas/Library/Application Support/cryptobot-app/user.sqlite"
+}
+
+model User {
+    id          String      @id @default(uuid())
+    api_user_id String      @unique
+    Portfolios  Portfolio[]
+}
+
+model Portfolio {
+    id         String   @id @default(uuid())
+    name       String
+    user_id    String?
+    isUpdating Boolean  @default(false)
+    updatedAt  DateTime @updatedAt
+
+    User               User?               @relation(fields: [user_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+    PortfolioWallets   PortfolioWallet[]
+    PortfolioStats     PortfolioStats[]
+    PortfolioTokens    PortfolioToken[]
+    PortfolioExchanges PortfolioExchange[]
+
+    // TokenTransactions TokenTransaction[]
+    @@unique([name, user_id])
+    @@index([isUpdating])
+}
+
+model Exchange {
+    id              String   @id @default(uuid())
+    api_exchange_id String   @unique
+    data            String   @default("{}")
+    updatedAt       DateTime @updatedAt
+
+    TokenTransactions TokenTransaction[]
+    ExchangeBalances  ExchangeBalance[]
+}
+
+model Blockchain {
+    id                String   @id @default(uuid())
+    api_blockchain_id String   @unique
+    updatedAt         DateTime @updatedAt
+
+    WalletTransactions WalletTransaction[]
+    TokenTransactions  TokenTransaction[]
+}
+
+model PortfolioToken {
+    id           String   @id @default(uuid())
+    portfolio_id String   @default("")
+    api_token_id String   @default("")
+    updatedAt    DateTime @updatedAt
+
+    TokenTransactions  TokenTransaction[]
+    WalletTransactions WalletTransaction[]
+    ExchangeBalances   ExchangeBalance[]
+    Portfolio          Portfolio           @relation(fields: [portfolio_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+    TokenApi           TokenApi?
+}
+
+model PortfolioExchange {
+    id           String   @id @default(uuid())
+    nom          String
+    portfolio_id String
+    exchange_id  String
+    api_data     String
+    updatedAt    DateTime @updatedAt
+
+    Portfolio        Portfolio         @relation(fields: [portfolio_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+    ExchangeBalances ExchangeBalance[]
+
+    @@unique([portfolio_id, exchange_id, nom])
+}
+
+model PortfolioWallet {
+    id           String   @id @default(uuid())
+    name         String
+    address      String
+    address_type String   @default("evm")
+    portfolio_id String
+    updatedAt    DateTime @updatedAt
+
+    Portfolio          Portfolio           @relation(fields: [portfolio_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+    WalletTransactions WalletTransaction[]
+
+    @@unique([address, portfolio_id])
+}
+
+model WalletTransaction {
+    id                  String   @id @default(uuid())
+    date                Int      @default(0)
+    hash                String
+    from                String
+    to                  String
+    type                String   @default("")
+    prix                Float    @default(0)
+    token_natif_prix    Float    @default(0)
+    type_transaction    String   @default("")
+    quantite            Float    @default(0)
+    fee_quantite        Float    @default(0)
+    block_number        Int
+    is_error            Boolean
+    blockchain_id       String
+    portfolio_wallet_id String
+    portfolio_token_id  String
+    updatedAt           DateTime @updatedAt
+
+    PortfolioToken    PortfolioToken? @relation(fields: [portfolio_token_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+    BlockchainOrigine Blockchain      @relation(fields: [blockchain_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+    PortfolioWallet   PortfolioWallet @relation(fields: [portfolio_wallet_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+    @@unique([date, hash, from, to, type, prix, quantite, blockchain_id, portfolio_token_id, type_transaction, portfolio_wallet_id])
+    @@index([type_transaction])
+}
+
+model TokenTransaction {
+    id                 String   @id @default(uuid())
+    date               Int      @default(0)
+    type               String   @default("")
+    prix               Float    @default(0)
+    quantite           Float    @default(0)
+    fee_quantite       Float    @default(0)
+    exchange_id        String?
+    blockchain_id      String?
+    portfolio_token_id String
+    updatedAt          DateTime @updatedAt
+
+    PortfolioToken    PortfolioToken @relation(fields: [portfolio_token_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+    ExchangeOrigine   Exchange?      @relation(fields: [exchange_id], references: [id], onDelete: Cascade, onUpdate: Cascade) // Pour les custom transaction/tokens
+    BlockchainOrigine Blockchain?    @relation(fields: [blockchain_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model ExchangeBalance {
+    id                    String   @id @default(uuid())
+    date                  Int      @default(0)
+    type                  String   @default("")
+    prix                  Float    @default(0)
+    diff                  Float    @default(0)
+    total                 Float    @default(0)
+    fee_quantite          Float    @default(0)
+    portfolio_exchange_id String
+    exchange_id           String
+    portfolio_token_id    String
+    updatedAt             DateTime @updatedAt
+
+    PortfolioToken    PortfolioToken    @relation(fields: [portfolio_token_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+    ExchangeOrigine   Exchange          @relation(fields: [exchange_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+    PortfolioExchange PortfolioExchange @relation(fields: [portfolio_exchange_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+model PortfolioStats {
+    id             String   @id @default(uuid())
+    portfolio_id   String
+    date           Int
+    total          Float
+    evolutionPct   Float
+    evolutionValue Float
+    data           String   @default("{}")
+    updatedAt      DateTime @updatedAt
+
+    Portfolio Portfolio @relation(fields: [portfolio_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+    @@unique([date, portfolio_id])
+}
+
+model TokenApi {
+    id                 String   @id @default(uuid())
+    api_token_id       String   @unique
+    portfolio_token_id String   @unique
+    data               String   @default("{}")
+    updatedAt          DateTime @updatedAt
+
+    PortfolioToken PortfolioToken? @relation(fields: [portfolio_token_id], references: [id], onDelete: Cascade, onUpdate: Cascade)
+
+    @@index([api_token_id])
+}

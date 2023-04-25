@@ -1,0 +1,6 @@
+@import '@cryptobot/tailwind-config/styles/index.css';
+
+.content-sidebar {
+    @apply grow flex;
+    max-height: calc(100vh - 65px);
+}

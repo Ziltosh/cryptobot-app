@@ -1,0 +1,119 @@
+{
+	"productName": "Cryptobot",
+	"appId": "fr.crypto-bot.app",
+	"copyright": "Copyright © 2023 Nicolas Egermann",
+//	"afterSign": "build/notarize.js",
+	"directories": {
+		"buildResources": "build",
+	},
+	"files": [
+//		"assets/**/*",
+		"!src/*",
+//		"src/renderer/src/assets/**/*",
+		"!.vscode/*",
+    	"!.idea/*",
+		"!.turbo/*",
+		"!dist/**/*",
+		"!.git/*",
+		"!electron.vite.config.{js,ts,mjs,cjs}",
+		"!{.eslintignore,.eslintrc.cjs,.prettierignore,.prettierrc.yaml,dev-app-update.yml,CHANGELOG.md,README.md}",
+		"!{tsconfig.json,tsconfig.node.json,tsconfig.web.json}",
+		"!**/node_modules/@prisma/engines/introspection-engine*",
+//		"!**/node_modules/@prisma/engines/migration-engine*",
+		"!**/node_modules/@prisma/engines/prisma-fmt*",
+//		"!**/node_modules/@prisma/engines/query_engine-*",
+//		"!**/node_modules/@prisma/engines/libquery_engine*",
+		"!**/node_modules/prisma/query_engine*",
+		"!**/node_modules/prisma/libquery_engine*",
+		"!**/node_modules/prisma/**/*.mjs"
+	],
+	"extraResources": [
+		"node_modules/.prisma/**/*",
+		"node_modules/@prisma/client/**/*",
+		"node_modules/@prisma/engines/migration-engine*",
+		"node_modules/@prisma/engines/query*",
+		"node_modules/@prisma/engines/libquery*",
+	],
+	"dmg": {
+		"artifactName": "${name}-${version}.${ext}",
+		"contents": [
+			{
+				"x": 130,
+				"y": 220
+			},
+			{
+				"path": "/Applications",
+				"type": "link",
+				"x": 410,
+				"y": 220
+			}
+		]
+	},
+	"linux": {
+		"category": "Utility",
+		"maintainer": "electronjs.org",
+		"target": ["AppImage", "snap", "deb"],
+		"asarUnpack": [
+			"prisma",
+			"out/main/portfolio.js",
+			"node_modules/@prisma/engines/query_engine-*",
+			"node_modules/@prisma/engines/libquery_engine*"
+		],
+	},
+	"appImage": {
+		"artifactName": "${name}-${version}.${ext}"
+	},
+	"mac": {
+		"entitlements": "build/entitlements.mac.plist",
+		"entitlementsInherit": "build/entitlements.mac.plist",
+		"extendInfo": [
+			{
+				"NSDocumentsFolderUsageDescription": "Application requests access to the user's Documents folder."
+			},
+			{
+				"NSDownloadsFolderUsageDescription": "Application requests access to the user's Downloads folder."
+			}
+		],
+		"asarUnpack": [
+			"prisma",
+			"out/main/portfolio.js",
+			"node_modules/@prisma/engines/query_engine-*",
+			"node_modules/@prisma/engines/libquery_engine*"
+		],
+		"hardenedRuntime": true
+	},
+
+	"win": {
+		"target": "nsis",
+		"asar": {
+			"smartUnpack": false
+		},
+		"asarUnpack": [
+			"prisma",
+			"out/main/portfolio.js",
+			"node_modules/@prisma/engines/query_engine-*",
+			"node_modules/@prisma/engines/libquery_engine*"
+		],
+		"signingHashAlgorithms": ["sha256"],
+		"publisherName": "Nicolas Egermann",
+		"signAndEditExecutable": true,
+		"artifactName": "${name}-${version}-setup.${ext}"
+	},
+
+	"npmRebuild": true,
+	"nsis": {
+		"artifactName": "${name}-${version}-setup.${ext}",
+		"createDesktopShortcut": "always",
+		"shortcutName": "${productName}",
+		"uninstallDisplayName": "${productName}"
+	},
+
+//	"publish": {
+//		"provider": "github",
+//		"private": "true",
+//		"releaseType": "release",
+//		"publishAutoUpdate": true
+//	},
+
+
+}

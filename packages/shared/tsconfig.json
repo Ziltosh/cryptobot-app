@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"lib": ["ESNext", "es2021"],
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"target": "ESNext",
+		"module": "ES2022",
+		"esModuleInterop": true,
+		"moduleResolution": "Node",
+		"sourceMap": true,
+		"composite": true
+	},
+	"extends": "@tsconfig/node18/tsconfig.json",
+	"ts-node": {
+		"esm": true,
+		"experimentalSpecifierResolution": "node"
+	}
+}
