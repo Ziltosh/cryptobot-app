@@ -1,1 +1,1 @@
-module.exports = require('@cryptobot/tailwind-config/postcss.config')
+module.exports = require('@cryptobot/tailwind-config/postcss.config.cjs')

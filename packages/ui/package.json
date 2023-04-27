@@ -1,7 +1,7 @@
 {
 	"name": "@cryptobot/ui",
 	"private": true,
-	"version": "0.0.0",
+	"version": "1.0.0",
 	"type": "module",
 	"main": "src/index.ts",
 	"prettier": "@cryptobot/tools/prettier.config.js",
@@ -9,13 +9,14 @@
 		"dev": "storybook dev -p 6006 --ci",
 		"build-storybook": "storybook build",
 		"format": "prettier --write ./src",
-		"build": "tsc --noEmit"
+		"compile": "tsc --noEmit",
+		"clean": "rm -rf node_modules && rm -rf dist"
 	},
 	"dependencies": {
-		"@cryptobot/db-api": "workspace:*",
-		"@cryptobot/shared": "workspace:*",
-		"@cryptobot/tailwind-config": "workspace:*",
-		"@cryptobot/tools": "workspace:*",
+		"@cryptobot/db-api": "*",
+		"@cryptobot/shared": "*",
+		"@cryptobot/tailwind-config": "*",
+		"@cryptobot/tools": "*",
 		"react-icons": "^4.7.1",
 		"react-number-format": "^5.1.4",
 		"react-select": "^5.7.0"
@@ -33,6 +34,7 @@
 		"@storybook/react-vite": "^7.0.6",
 		"@storybook/testing-library": "^0.1.0",
 		"@storybook/theming": "^7.0.6",
+		"@storybook/types": "^7.0.6",
 		"@types/react": "^18.0.38",
 		"@types/react-dom": "^18.0.11",
 		"@vitejs/plugin-react": "^3.1.0",
@@ -41,7 +43,6 @@
 		"react-dom": "^18.2.0",
 		"storybook": "^7.0.6",
 		"storybook-dark-mode": "^2.1.1",
-		"typescript": "^4.9.5",
 		"vite": "^4.3.1"
 	}
 }

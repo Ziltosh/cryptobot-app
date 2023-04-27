@@ -4,10 +4,11 @@
   "private": true,
   "description": "",
   "main": "index.js",
+  "type": "module",
   "prettier": "prettier.config.js",
   "scripts": {
     "format": "prettier --write ./src",
-    "build": "tsc --noEmit"
+    "compile": "tsc"
   },
   "keywords": [],
   "author": "",

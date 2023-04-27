@@ -7,13 +7,15 @@
 	"prettier": "@cryptobot/tools/prettier.config.js",
 	"scripts": {
 		"format": "prettier --write ./src",
-		"build": "tsc --noEmit"
+		"build": "rm -rf dist && tsc --build",
+		"compile": "tsc --noEmit",
+		"clean": "rm -rf dist && rm -rf node_modules"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"@cryptobot/tools": "workspace:*",
+		"@cryptobot/tools": "*",
 		"auto-zustand-selectors-hook": "^2.0.0",
 		"axios": "^1.3.6",
 		"immer": "^9.0.21",
@@ -22,10 +24,13 @@
 		"zustand-computed": "^1.3.3"
 	},
 	"devDependencies": {
-		"@tsconfig/node18": "^1.0.3",
+
+	},
+	"peerDependencies": {
+		"react": "^18.2.0",
 		"@types/node": "^18.15.13",
 		"@types/react": "^18.0.38",
-		"react": "^18.2.0",
-		"typescript": "^4.9.5"
+		"typescript": "^4.9.5",
+		"blinkdb": "^0.10.0"
 	}
 }

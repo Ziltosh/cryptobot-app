@@ -2,9 +2,15 @@
   "name": "@cryptobot/tailwind-config",
   "version": "0.0.0",
   "main": "index.js",
+  "type": "module",
   "license": "MIT",
   "files": [
     "tailwind.config.cjs",
     "postcss.config.cjs"
-  ]
+  ],
+  "scripts": {
+  },
+  "peerDependencies": {
+    "tailwindcss": "^3.3.1"
+  }
 }
