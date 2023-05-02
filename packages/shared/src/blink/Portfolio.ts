@@ -6,15 +6,15 @@ import {
 	PortfolioTokenTransactionsLocalDB,
 	PortfolioWalletsLocalDB,
 	PortfolioWalletTransactionsLocalDB,
-	PortfolioWithStatsLocalDB,
-} from '../prisma-types/app/portfolio/Portfolio.db.types'
-import { createDB, createTable } from 'blinkdb'
-import { BlockchainDB, ExchangeDB, TokenDB } from '../prisma-types/db-api/DB.types'
+	PortfolioWithStatsLocalDB
+} from "../prisma-types/app/portfolio/Portfolio.db.types";
+import { createDB, createTable } from "blinkdb";
+import { BlockchainDB, ExchangeDB, TokenDB } from "../prisma-types/db-api/DB.types";
 
 interface PortfolioBlink extends PortfolioWithStatsLocalDB {
 	_isCurrent?: boolean
 }
-interface PortfolioWalletBlink extends PortfolioWalletsLocalDB {}
+type PortfolioWalletBlink = PortfolioWalletsLocalDB
 interface PortfolioTokenBlink extends PortfolioTokensLocalDB {
 	_tokenApiData: TokenDB
 	_isCurrent?: boolean
@@ -31,7 +31,7 @@ interface PortfolioExchangeBalanceBlink extends PortfolioExchangeBalancesLocalDB
 interface PortfolioTokenTransactionBlink extends PortfolioTokenTransactionsLocalDB {
 	_isCurrent?: boolean
 }
-interface PortfolioStatsBlink extends PortfolioStatsLocalDB {}
+type PortfolioStatsBlink = PortfolioStatsLocalDB
 interface PortfolioLogsBlink {
 	id: string
 	message: string

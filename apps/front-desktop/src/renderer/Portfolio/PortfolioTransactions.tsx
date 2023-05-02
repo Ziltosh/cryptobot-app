@@ -1,18 +1,18 @@
-import React from 'react'
-import {PortfolioTokenTransaction, PortfolioTransactions as UIPortfolioTransactions, Text} from '@cryptobot/ui'
-import {BlockchainDB, ExchangeDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
-import {getImageUrl} from '@cryptobot/shared/src/helpers/imageUrl.fn'
-import {GroupOptionWithImage, OptionWithImage} from '@cryptobot/shared/src/ui/select/Option.types'
-import {PortfolioTokenTransactionsLocalDB} from '@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types'
-import {PortfolioWalletTransaction} from '@cryptobot/ui/src/Molecules/Portfolio/PortfolioWalletTransaction'
-import {portfolioTokenTransactionTable} from '@cryptobot/shared/src/blink/Portfolio'
-import {insert, remove, update} from 'blinkdb'
-import {generateId} from '@cryptobot/shared/src/helpers/generateId.fn'
+import React from "react";
+import { PortfolioTokenTransaction, PortfolioTransactions as UIPortfolioTransactions, Text } from "@cryptobot/ui";
+import { BlockchainDB, ExchangeDB } from "@cryptobot/shared/src/prisma-types/db-api/DB.types";
+import { getImageUrl } from "@cryptobot/shared/src/helpers/imageUrl.fn";
+import { GroupOptionWithImage, OptionWithImage } from "@cryptobot/shared/src/ui/select/Option.types";
+import { PortfolioTokenTransactionsLocalDB } from "@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types";
+import { PortfolioWalletTransaction } from "@cryptobot/ui/src/Molecules/Portfolio/PortfolioWalletTransaction";
+import { portfolioTokenTransactionTable } from "@cryptobot/shared/src/blink/Portfolio";
+import { insert, remove, update } from "blinkdb";
+import { generateId } from "@cryptobot/shared/src/helpers/generateId.fn";
 import {
 	usePortfolioTokens,
 	usePortfolioTokenTransactions,
-	usePortfolioWalletTransactions,
-} from '@cryptobot/shared/src/hooks/blink/portfolio'
+	usePortfolioWalletTransactions
+} from "@cryptobot/shared/src/hooks/blink/portfolio";
 
 type Props = {
 	mode: 'custom' | 'wallet'

@@ -1,6 +1,6 @@
-import '../../index.css'
-import {twMerge} from 'tailwind-merge'
-import {LimitDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
+import "../../index.css";
+import { twMerge } from "tailwind-merge";
+import { LimitDB } from "@cryptobot/shared/src/prisma-types/db-api/DB.types";
 
 const presets = ['default', 'active'] as const
 
@@ -30,7 +30,7 @@ export const PortfolioLimit = (props: Props) => {
 			</div>
 			<div className={'flex gap-1'}>
 				<span className={'font-bold text-amber-500'}>
-					{props.limit.data.ptokens < 61 ? props.limit.data.ptokens : '∞'}
+					{props.limit.data.tokens < 61 ? props.limit.data.tokens : '∞'}
 				</span>
 				tokens perso
 			</div>

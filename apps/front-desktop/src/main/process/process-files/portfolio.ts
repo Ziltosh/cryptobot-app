@@ -1,4 +1,4 @@
-import process from 'process'
+import process from "process";
 import {
 	PortfolioExchangesMessageResponse,
 	PortfolioExchangesMessageUpdate,
@@ -6,24 +6,24 @@ import {
 	PortfolioStatsMessageResponse,
 	PortfolioStatsMessageUpdate,
 	PortfolioWalletsMessageResponse,
-	PortfolioWalletsMessageUpdate,
-} from '@cryptobot/shared/src/front-desktop/preload/IpcMessage.types'
+	PortfolioWalletsMessageUpdate
+} from "@cryptobot/shared/src/front-desktop/preload/IpcMessage.types";
 import {
 	ExchangeBalancesLocalDB,
 	PortfolioBlockchainStatsData,
 	PortfolioExchangeStatsData,
 	PortfolioTokensLocalDB,
 	PortfolioTokenStatsData,
-	PortfolioWalletStatsData,
-} from '@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types'
+	PortfolioWalletStatsData
+} from "@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types";
 import {
 	dbApiGetCompatibleBlockchains,
 	dbApiGetMarketPrice,
 	dbApiGetNativeBlockchainToken,
-	dbApiGetTokenByExchangeTokenSymbol,
-} from '@cryptobot/shared/src/front-desktop/main/process/dbApi.fn'
-import { traiterBalanceTokenNatif, traiterEVMTransactionsERC20 } from './portfolioWallets'
-import { dateMinusModuloXMin } from '@cryptobot/shared/src/helpers/date.fn'
+	dbApiGetTokenByExchangeTokenSymbol
+} from "@cryptobot/shared/src/front-desktop/main/process/dbApi.fn";
+import { traiterBalanceTokenNatif, traiterEVMTransactionsERC20 } from "./portfolioWallets";
+import { dateMinusModuloXMin } from "@cryptobot/shared/src/helpers/date.fn";
 import {
 	getPRUOfToken,
 	getQuantiteActuelleOfToken,
@@ -32,12 +32,12 @@ import {
 	getQuantiteOutOfToken,
 	getValeurFeesOfToken,
 	getValeurInOfToken,
-	getValeurOutOfToken,
-} from './portfolioTokens'
-import { generateClassName } from '@cryptobot/shared/src/helpers/generateClassName.fn'
-import Exchanges from '@cryptobot/ccxt/src/exchanges/_listing'
-import { generateId } from '@cryptobot/shared/src/helpers/generateId.fn'
-import { CcxtPartialBalances } from '@cryptobot/ccxt/src/ccxt.types'
+	getValeurOutOfToken
+} from "./portfolioTokens";
+import { generateClassName } from "@cryptobot/shared/src/helpers/generateClassName.fn";
+import { Exchanges } from "@cryptobot/ccxt/src/exchanges/_listing";
+import { generateId } from "@cryptobot/shared/src/helpers/generateId.fn";
+import { CcxtPartialBalances } from "@cryptobot/ccxt/src/ccxt.types";
 
 process.on('message', async (message: PortfolioMessage): Promise<void> => {
 	try {

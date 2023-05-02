@@ -1,0 +1,15 @@
+{
+  "targets": [
+    {
+      "extname": ".cjs",
+      "module": "commonjs",
+      "target": "es2020"
+    },
+    {
+      "extname": ".mjs",
+      "module": "es2020",
+      "target": "es2020"
+    }
+  ],
+  "projects": ["tsconfig.json"]
+}

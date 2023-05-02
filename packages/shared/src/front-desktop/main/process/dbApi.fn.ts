@@ -1,5 +1,3 @@
-/// <reference lib="dom" />
-
 import {
 	BlockchainDB,
 	EVMBalanceTransactionDB,
@@ -10,11 +8,11 @@ import {
 	OfferWithLimitsDB,
 	PortfolioCloudDB,
 	TokenDB,
-	UserDB,
-} from '../../../prisma-types/db-api/DB.types'
+	UserDB
+} from "../../../prisma-types/db-api";
 
-import { config, dotenvLoad } from 'dotenv-mono'
-import { EVMERC20Transaction, EVMInternalTransaction, EVMNormalTransaction } from '../../../prisma-types/db-api/client'
+import { config, dotenvLoad } from "dotenv-mono";
+import { EVMERC20Transaction, EVMInternalTransaction, EVMNormalTransaction } from "../../../prisma-types/db-api/client";
 
 const test = dotenvLoad()
 config(test)

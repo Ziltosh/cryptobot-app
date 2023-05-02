@@ -1,4 +1,4 @@
-import { Exchange, Limit, Portfolio, Prisma } from './client'
+import { Exchange, Limit, Portfolio, Prisma } from "./client";
 
 export type PortfolioCloudDB = Portfolio
 

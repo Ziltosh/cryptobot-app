@@ -1,10 +1,10 @@
-import {Content, Footer, Header, Icon, Sidebar, Status, Text} from '@cryptobot/ui'
-import {Link, Outlet, useNavigate} from 'react-router-dom'
-import React from 'react'
-import {FaCalculator, FaRobot, GrTest, IoMdWallet, MdDashboard} from 'react-icons/all'
-import {ProcessStatus} from '@cryptobot/shared/src/front-desktop/preload/Process.types'
-import {useLogStore} from '@cryptobot/shared/src/front-desktop/renderer/stores/LogStore'
-import {useUserStore} from '@cryptobot/shared/src/front-desktop/renderer/stores/UserStore'
+import { Content, Footer, Header, Icon, Sidebar, Status, Text } from "@cryptobot/ui";
+import { Link, Outlet, useNavigate } from "react-router-dom";
+import React from "react";
+import { FaCalculator, FaRobot, GrTest, IoMdWallet, MdDashboard } from "react-icons/all";
+import { ProcessStatus } from "@cryptobot/shared/src/front-desktop/preload/Process.types";
+import { useLogStore } from "@cryptobot/shared/src/front-desktop/renderer/stores/LogStore";
+import { useUserStore } from "@cryptobot/shared/src/front-desktop/renderer/stores/UserStore";
 // import { ipcRenderer } from 'electron'
 
 // import { remote } from 'electron'

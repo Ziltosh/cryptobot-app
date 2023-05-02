@@ -1,10 +1,10 @@
-import { Prisma } from '../client'
-import { BlockchainDB, ExchangeDB, TokenDB, UserDB } from '../../db-api/DB.types'
+import { BlockchainDB, ExchangeDB, TokenDB, UserDB } from "../../db-api";
+import { Prisma } from "../../app/client";
 
 const portfolio = Prisma.validator<Prisma.PortfolioArgs>()({})
 export type PortfolioLocalDB = Prisma.PortfolioGetPayload<typeof portfolio> & {
-	_isNew?: boolean
 	_emplacement?: string
+	_isNew?: boolean
 }
 
 const portfolioWithStats = Prisma.validator<Prisma.PortfolioArgs>()({

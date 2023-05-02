@@ -1,0 +1,39 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"esModuleInterop": true,
+		"noUnusedLocals": true,
+		"composite": false,
+		"declaration": true,
+		"declarationMap": true,
+		"sourceMap": true,
+		"skipLibCheck": true,
+		"experimentalDecorators": true,
+		"emitDecoratorMetadata": true,
+		"allowSyntheticDefaultImports": true,
+		"forceConsistentCasingInFileNames": true,
+		"target": "ES6",
+		"module": "ES2022",
+		"lib": ["es5", "dom", "esnext"],
+		"moduleResolution": "Node",
+		"resolveJsonModule": true,
+		"isolatedModules": true,
+		"incremental": false,
+		"paths": {
+			"@cryptobot/db-api": ["../packages/db-api/src/index.ts"],
+			"@cryptobot/ccxt": ["../packages/ccxt/src/index.ts"],
+			"@cryptobot/blockchains": ["../packages/blockchains/src/index.ts"],
+			"@cryptobot/seeding": ["../packages/seeding/src/index.ts"],
+			"@cryptobot/shared": ["../packages/shared/src/index.ts"],
+			"@cryptobot/ui": ["../packages/ui/src/index.ts"],
+			"@cryptobot/tools": ["../packages/tools/src/index.ts"],
+		},
+		"types": ["node"]
+	},
+	"exclude": [
+		"../packages/shared/node_modules", "**/*/dist", "**/*/build"],
+	"ts-node": {
+		"esm": true,
+		"experimentalSpecifierResolution": "node"
+	}
+}

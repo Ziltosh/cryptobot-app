@@ -1,7 +1,7 @@
-import '../../index.css'
-import {twMerge} from 'tailwind-merge'
-import {BlockchainDB, ExchangeDB, TokenDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
-import {getImageUrl} from '@cryptobot/shared/src/helpers/imageUrl.fn'
+import "../../index.css";
+import { twMerge } from "tailwind-merge";
+import { BlockchainDB, ExchangeDB, TokenDB } from "@cryptobot/shared/src/prisma-types/db-api/DB.types";
+import { getImageUrl } from "@cryptobot/shared/src/helpers/imageUrl.fn";
 
 type PresetProps = {
 	exchange: {

@@ -1,8 +1,7 @@
-import '../../index.css'
-import { twMerge } from 'tailwind-merge'
-import { Text } from '../../Atoms/Text/Text'
-import { FaTrashAlt, MdImageNotSupported, MdOutlineAddBox } from 'react-icons/all'
-import React from 'react'
+import "../../index.css";
+import { twMerge } from "tailwind-merge";
+import { Text } from "../../Atoms/Text/Text";
+import { FaTrashAlt, MdImageNotSupported, MdOutlineAddBox } from "react-icons/all";
 
 type PresetProps = {
 	default: {
@@ -10,7 +9,7 @@ type PresetProps = {
 		logo: string
 		onDelete?: () => void
 	}
-	add: {}
+	add: object
 }
 
 type Preset = keyof PresetProps

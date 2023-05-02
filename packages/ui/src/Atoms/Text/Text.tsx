@@ -1,7 +1,7 @@
-import '../../index.css'
-import { PropsWithChildren } from 'react'
-import { twMerge } from 'tailwind-merge'
-import { convertFromMarkdown } from '@cryptobot/tools/string'
+import "../../index.css";
+import { PropsWithChildren } from "react";
+import { twMerge } from "tailwind-merge";
+import { convertFromMarkdown } from "@cryptobot/tools/src/string";
 
 export const TextPresets = [
 	'h1',
@@ -18,7 +18,7 @@ export const TextPresets = [
 ] as const
 
 type TextProps = {
-	preset?: typeof TextPresets[number]
+	preset?: (typeof TextPresets)[number]
 	centered?: boolean
 	bold?: boolean
 	italic?: boolean
@@ -28,7 +28,7 @@ type TextProps = {
 
 const baseClasses = ['dark:text-white', 'text-black', 'font-sans', 'leading-normal']
 
-const classes: Record<typeof TextPresets[number], string[]> = {
+const classes: Record<(typeof TextPresets)[number], string[]> = {
 	default: baseClasses,
 	h1: [...baseClasses, 'text-2xl', 'font-bold', 'mb-3'],
 	h2: [...baseClasses, 'text-xl', 'font-bold', 'mb-2'],

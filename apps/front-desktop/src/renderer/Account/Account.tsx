@@ -1,8 +1,7 @@
-import { Button, Text } from '@cryptobot/ui'
-
-import { useNavigate } from 'react-router-dom'
-import React from 'react'
-import { useUserStore } from '@cryptobot/shared/src/front-desktop/renderer/stores/UserStore'
+import { useNavigate } from "react-router-dom";
+import React from "react";
+import { useUserStore } from "@cryptobot/shared/src/front-desktop/renderer/stores/UserStore";
+import { Button, Text } from "@cryptobot/ui";
 
 const Account = (): JSX.Element => {
 	document.title = 'Dashboard'

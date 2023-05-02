@@ -1,6 +1,5 @@
-import { PortfolioTransactions } from './PortfolioTransactions'
-import { Meta, StoryFn } from '@storybook/react'
-import binanceLogo from '../../assets/exchanges/binance-logo.png'
+import { PortfolioTransactions } from "./PortfolioTransactions";
+import { Meta, StoryFn } from "@storybook/react";
 
 export default {
 	title: 'Molecules/Portfolio/PortfolioTransactions',

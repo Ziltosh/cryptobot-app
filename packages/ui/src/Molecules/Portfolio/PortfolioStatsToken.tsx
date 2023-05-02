@@ -1,15 +1,15 @@
-import '../../index.css'
-import React from 'react'
-import { Currency } from '../../Atoms/Currency/Currency'
-import { Percent } from '../../Atoms/Percent/Percent'
-import { LogoItem } from '../../Atoms/LogoItem/LogoItem'
+import "../../index.css";
+import React from "react";
+import { Currency } from "../../Atoms/Currency/Currency";
+import { Percent } from "../../Atoms/Percent/Percent";
+import { LogoItem } from "../../Atoms/LogoItem/LogoItem";
 import {
 	PortfolioTokensLocalDB,
-	PortfolioTokenStatsData,
-} from '@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types'
-import { BlockchainDB, ExchangeDB } from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
-import { first } from 'blinkdb'
-import { portfolioTokenTable } from '@cryptobot/shared/src/blink/Portfolio'
+	PortfolioTokenStatsData
+} from "@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types";
+import { BlockchainDB, ExchangeDB } from "@cryptobot/shared/src/prisma-types/db-api/DB.types";
+import { first } from "blinkdb";
+import { portfolioTokenTable } from "@cryptobot/shared/src/blink/Portfolio";
 
 type PresetProps = {
 	default: {
@@ -47,7 +47,7 @@ export const PortfolioStatsToken = <P extends Preset>(props: Props<P>) => {
 		// 	getExchangesForToken(props.tokenStats.id).then((exchanges) => {
 		// 		setExchanges(exchanges)
 		// 	})
-		first(portfolioTokenTable, {
+		void first(portfolioTokenTable, {
 			where: {
 				id: props.tokenStats.id,
 			},

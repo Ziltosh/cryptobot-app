@@ -1,6 +1,6 @@
-import {Text} from '@cryptobot/ui'
-import React from 'react'
-import {OfferWithLimitsDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
+import { Text } from "@cryptobot/ui";
+import React from "react";
+import { OfferWithLimitsDB } from "@cryptobot/shared/src/prisma-types/db-api/DB.types";
 
 const Tests = (): JSX.Element => {
 	document.title = 'Tests'

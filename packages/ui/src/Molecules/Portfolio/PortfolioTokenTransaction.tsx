@@ -1,17 +1,17 @@
-import '../../index.css'
-import {Select} from '../../Atoms/Select/Select'
-import {Input} from '../../Atoms/Input/Input'
-import {FaTrashAlt, MdCheck} from 'react-icons/all'
-import React from 'react'
-import {BlockchainDB, ExchangeDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
-import {LogoItem} from '../../Atoms/LogoItem/LogoItem'
-import {Button} from '../../Atoms/Button/Button'
-import {Currency} from '../../Atoms/Currency/Currency'
-import {GroupOptionWithImage} from '@cryptobot/shared/src/ui/select/Option.types'
-import {PortfolioTokenTransactionsLocalDB} from '@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types'
-import {usePortfolioTokenTransactions} from '@cryptobot/shared/src/hooks/blink/portfolio'
-import {update} from 'blinkdb'
-import {portfolioTokenTransactionTable} from '@cryptobot/shared/src/blink/Portfolio'
+import "../../index.css";
+import { Select } from "../../Atoms/Select/Select";
+import { Input } from "../../Atoms/Input/Input";
+import { FaTrashAlt, MdCheck } from "react-icons/all";
+import React from "react";
+import { BlockchainDB, ExchangeDB } from "@cryptobot/shared/src/prisma-types/db-api/DB.types";
+import { LogoItem } from "../../Atoms/LogoItem/LogoItem";
+import { Button } from "../../Atoms/Button/Button";
+import { Currency } from "../../Atoms/Currency/Currency";
+import { PortfolioTokenTransactionsLocalDB } from "@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types";
+import { update } from "blinkdb";
+import { GroupOptionWithImage } from "@cryptobot/shared/src/ui/select/Option.types";
+import { portfolioTokenTransactionTable } from "@cryptobot/shared/src/blink/Portfolio";
+import { usePortfolioTokenTransactions } from "@cryptobot/shared/src/hooks/blink/portfolio";
 
 type PresetProps = {
 	default: {

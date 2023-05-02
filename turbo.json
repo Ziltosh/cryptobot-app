@@ -7,7 +7,17 @@
     "dev": {
       "cache": false
     },
-    "build": {},
-    "compile": {}
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "dist/**", "build/**"
+      ]
+    },
+    "compile": {},
+    "clean": {
+      "cache": false
+    }
   }
 }

@@ -1,3 +1,9 @@
 src/prisma-types/app/client
 src/prisma-types/db-api/client
 .env
+
+*.cjs
+*.mjs
+*.d.ts
+*.map
+src/**/*.js

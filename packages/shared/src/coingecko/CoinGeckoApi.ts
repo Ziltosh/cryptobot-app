@@ -1,4 +1,4 @@
-import axios, { AxiosError, AxiosInstance } from 'axios'
+import axios, { AxiosError, AxiosInstance } from "axios";
 import {
 	CoingeckoBlockchainsListResponse,
 	CoingeckoCoin,
@@ -7,9 +7,13 @@ import {
 	CoingeckoCoinMarketsResponse,
 	CoingeckoCoinTickersListResponse,
 	CoingeckoExchangeListResponse,
-	CoingeckoPingResponse,
-} from './Coingecko.types'
-import * as https from 'https'
+	CoingeckoPingResponse
+} from "./Coingecko.types";
+import * as https from "https";
+import { config } from "dotenv-mono";
+import * as process from "process";
+
+config()
 
 export class CoinGeckoApi {
 	private readonly url: string
@@ -32,8 +36,8 @@ export class CoinGeckoApi {
 					port: 22225,
 					protocol: 'https',
 					auth: {
-						username: 'brd-customer-hl_20c69cbf-zone-zone3',
-						password: 'n608641ykvgo',
+						username: process.env.PROXY_USERNAME || '',
+						password: process.env.PROXY_PASSWORD || '',
 					},
 				},
 			})

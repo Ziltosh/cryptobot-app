@@ -1,9 +1,9 @@
-import '../../index.css'
-import { twMerge } from 'tailwind-merge'
-import React, { PropsWithChildren } from 'react'
+import "../../index.css";
+import { twMerge } from "tailwind-merge";
+import { PropsWithChildren } from "react";
 
 type PresetProps = {
-	default: {}
+	default: object
 }
 
 type Preset = keyof PresetProps

@@ -59,10 +59,10 @@ export interface CoingeckoCoin extends CoinGeckoCoinMinimal {
 }
 
 type CoinGeckoCoinMinimal = {
-	id: string
-	symbol: string
-	name: string
-	platforms: Platforms
+	id?: string
+	symbol?: string
+	name?: string
+	platforms?: Platforms
 }
 
 export interface CoinGeckoCoinTicker {

@@ -1,11 +1,12 @@
-import { config } from 'dotenv-mono'
+import { config } from "dotenv-mono";
 
-import { Exchange } from 'ccxt'
-import { CcxtExchange } from './CcxtExchange'
+import { Exchange } from "ccxt";
+import { CcxtExchange } from "./CcxtExchange";
 
 config() // Take environment variables from .env
 
 export class Bitfinex2 extends CcxtExchange {
+	// @ts-ignore
 	private instance: Exchange
 	constructor() {
 		super()

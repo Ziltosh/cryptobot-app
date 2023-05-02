@@ -1,13 +1,13 @@
-import {PortfolioItem, Text} from '@cryptobot/ui'
-import {useNavigate} from 'react-router-dom'
-import {PortfolioLimit} from '@cryptobot/ui/src/Molecules/Portfolio/PortfolioLimit'
-import React from 'react'
-import {PortfolioCloudDB} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
-import {Portfolio as PortfolioLocalDB} from '.prisma/client'
-import {useOfferStore} from '@cryptobot/shared/src/front-desktop/renderer/stores/OfferStore'
-import {useUserStore} from '@cryptobot/shared/src/front-desktop/renderer/stores/UserStore'
-import {useMiscStore} from '@cryptobot/shared/src/front-desktop/renderer/stores/MiscStore'
-import {clear, insert, insertMany, remove, update} from 'blinkdb'
+import { PortfolioItem, Text } from "@cryptobot/ui";
+import { useNavigate } from "react-router-dom";
+import { PortfolioLimit } from "@cryptobot/ui/src/Molecules/Portfolio/PortfolioLimit";
+import React from "react";
+import { PortfolioCloudDB } from "@cryptobot/shared/src/prisma-types/db-api/DB.types";
+import { Portfolio as PortfolioLocalDB } from ".prisma/client";
+import { useOfferStore } from "@cryptobot/shared/src/front-desktop/renderer/stores/OfferStore";
+import { useUserStore } from "@cryptobot/shared/src/front-desktop/renderer/stores/UserStore";
+import { useMiscStore } from "@cryptobot/shared/src/front-desktop/renderer/stores/MiscStore";
+import { clear, insert, insertMany, remove, update } from "blinkdb";
 import {
 	portfolioExchangeBalanceTable,
 	portfolioExchangeTable,
@@ -15,11 +15,11 @@ import {
 	portfolioTable,
 	portfolioTokenTable,
 	portfolioWalletTable,
-	portfolioWalletTransactionTable,
-} from '@cryptobot/shared/src/blink/Portfolio'
-import {importPortfolio} from '../helpers/portfolio.fn'
-import {generateId} from '@cryptobot/shared/src/helpers/generateId.fn'
-import {usePortfolios} from '@cryptobot/shared/src/hooks/blink/portfolio'
+	portfolioWalletTransactionTable
+} from "@cryptobot/shared/src/blink/Portfolio";
+import { importPortfolio } from "../helpers/portfolio.fn";
+import { generateId } from "@cryptobot/shared/src/helpers/generateId.fn";
+import { usePortfolios } from "@cryptobot/shared/src/hooks/blink/portfolio";
 
 const Portfolio = (): JSX.Element => {
 	document.title = 'Portfolio'

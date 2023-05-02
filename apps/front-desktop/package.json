@@ -7,7 +7,7 @@
 	"type": "commonjs",
 	"author": "example.com",
 	"homepage": "https://www.electronjs.org",
-	"prettier": "@cryptobot/tools/prettier.config.js",
+	"prettier": "../../_config/prettier.config.js",
 	"scripts": {
 		"format": "prettier --write ./src",
 		"lint": "eslint . --ext .js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix",
@@ -24,16 +24,16 @@
 		"prisma:generate": "prisma generate && pnpm run prisma:copy"
 	},
 	"dependencies": {
-		"@cryptobot/db-api": "*",
-		"@cryptobot/shared": "*",
-		"@cryptobot/tailwind-config": "*",
-		"@cryptobot/tools": "*",
-		"@cryptobot/ui": "*",
-		"@cryptobot/ccxt": "*",
+		"@cryptobot/ccxt": "workspace:*",
+		"@cryptobot/db-api": "workspace:*",
+		"@cryptobot/shared": "workspace:*",
+		"@cryptobot/tailwind-config": "workspace:*",
+		"@cryptobot/ui": "workspace:*",
 		"@electron-toolkit/preload": "^1.0.3",
 		"@electron-toolkit/utils": "^1.0.2",
 		"@prisma/client": "^4.13.0",
 		"@prisma/engines": "^4.13.0",
+		"blinkdb": "^0.10.0",
 		"bufferutil": "^4.0.7",
 		"echarts": "^5.4.2",
 		"echarts-for-react": "^3.0.2",
@@ -45,6 +45,7 @@
 		"utf-8-validate": "^6.0.3"
 	},
 	"devDependencies": {
+		"@cryptobot/tools": "*",
 		"@electron-toolkit/tsconfig": "^1.0.1",
 		"@electron/asar": "^3.2.4",
 		"@electron/notarize": "^1.2.3",

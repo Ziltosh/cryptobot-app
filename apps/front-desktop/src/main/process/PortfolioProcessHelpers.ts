@@ -1,10 +1,13 @@
-import { dbApiGetNativeBlockchainToken, dbApiGetToken } from '@cryptobot/shared/src/front-desktop/main/process/dbApi.fn'
 import {
 	PortfolioExchangesMessageResponse,
-	PortfolioWalletsMessageResponse,
-} from '@cryptobot/shared/src/front-desktop/preload/IpcMessage.types'
-import { PrismaClient } from '.prisma/client'
-import { generateId } from '@cryptobot/shared/src/helpers/generateId.fn'
+	PortfolioWalletsMessageResponse
+} from "@cryptobot/shared/src/front-desktop/preload/IpcMessage.types";
+import { PrismaClient } from ".prisma/client";
+import { generateId } from "@cryptobot/shared/src/helpers/generateId.fn";
+import {
+	dbApiGetNativeBlockchainToken,
+	dbApiGetToken
+} from "@cryptobot/shared/src/front-desktop/main/process/dbApi.fn";
 
 export const processTraiterEVMTransactionsNormal = async ({
 	transactions,

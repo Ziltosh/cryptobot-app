@@ -1,26 +1,26 @@
-import {contextBridge, ipcRenderer} from 'electron'
-import {electronAPI} from '@electron-toolkit/preload'
+import { contextBridge, ipcRenderer } from "electron";
+import { electronAPI } from "@electron-toolkit/preload";
 import {
-    BlockchainDB,
-    ExchangeDB,
-    OfferWithLimitsDB,
-    PortfolioCloudDB,
-    TokenDB,
-    UserDB
-} from '@cryptobot/shared/src/prisma-types/db-api/DB.types'
-import {UserToken} from '@cryptobot/shared/src/front-desktop/preload/UserToken.types'
-import {ProcessStatus} from '@cryptobot/shared/src/front-desktop/preload/Process.types'
+	BlockchainDB,
+	ExchangeDB,
+	OfferWithLimitsDB,
+	PortfolioCloudDB,
+	TokenDB,
+	UserDB
+} from "@cryptobot/shared/src/prisma-types/db-api/DB.types";
+import { UserToken } from "@cryptobot/shared/src/front-desktop/preload/UserToken.types";
+import { ProcessStatus } from "@cryptobot/shared/src/front-desktop/preload/Process.types";
 import {
-    ExchangeLocalDB,
-    PortfolioExchangesLocalDB,
-    PortfolioLocalDB,
-    PortfolioTokensLocalDB,
-    PortfolioTokenTransactionsLocalDB,
-    PortfolioWalletsLocalDB,
-    PortfolioWithAllLocalDB,
-    PortfolioWithStatsLocalDB,
-    TokenApiLocalDB,
-} from '@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types'
+	ExchangeLocalDB,
+	PortfolioExchangesLocalDB,
+	PortfolioLocalDB,
+	PortfolioTokensLocalDB,
+	PortfolioTokenTransactionsLocalDB,
+	PortfolioWalletsLocalDB,
+	PortfolioWithAllLocalDB,
+	PortfolioWithStatsLocalDB,
+	TokenApiLocalDB
+} from "@cryptobot/shared/src/prisma-types/app/portfolio/Portfolio.db.types";
 
 // import { OfferPrisma } from 'db-api'
 // import ipcRenderer = Electron.ipcRenderer;

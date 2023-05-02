@@ -1,11 +1,11 @@
-import '../../index.css'
-import { twMerge } from 'tailwind-merge'
-import { Icon } from '../../Atoms/Icon/Icon'
-import { FaEye, FaEyeSlash, FaRobot, FaUser } from 'react-icons/all'
-import { Text } from '../../Atoms/Text/Text'
-import { useLogStore } from '@cryptobot/shared/src/front-desktop/renderer/stores/LogStore'
-import { useUserStore } from '@cryptobot/shared/src/front-desktop/renderer/stores/UserStore'
-import { useMiscStore } from '@cryptobot/shared/src/front-desktop/renderer/stores/MiscStore'
+import "../../index.css";
+import { twMerge } from "tailwind-merge";
+import { Icon } from "../../Atoms/Icon/Icon";
+import { FaEye, FaEyeSlash, FaRobot, FaUser } from "react-icons/all";
+import { Text } from "../../Atoms/Text/Text";
+import { useUserStore } from "@cryptobot/shared/src/front-desktop/renderer/stores/UserStore";
+import { useMiscStore } from "@cryptobot/shared/src/front-desktop/renderer/stores/MiscStore";
+import { useLogStore } from "@cryptobot/shared/src/front-desktop/renderer/stores/LogStore";
 
 const presets = ['default'] as const
 

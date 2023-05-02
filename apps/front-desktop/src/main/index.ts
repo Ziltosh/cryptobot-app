@@ -1,10 +1,10 @@
-import { app, BrowserWindow, ipcMain } from 'electron'
-import { electronApp, optimizer } from '@electron-toolkit/utils'
-import 'reflect-metadata'
-import { systemGetAppVersion, systemGetIsDev, systemGetProcessesStatus, systemGetProcessLogs } from './IPC/systemApi'
-import { createMainWindow } from './ui/window'
-import { addTray } from './ui/tray'
-import { PortfolioProcess } from './process/PortfolioProcess'
+import { app, BrowserWindow, ipcMain } from "electron";
+import { electronApp, optimizer } from "@electron-toolkit/utils";
+import "reflect-metadata";
+import { systemGetAppVersion, systemGetIsDev, systemGetProcessesStatus, systemGetProcessLogs } from "./IPC/systemApi";
+import { createMainWindow } from "./ui/window";
+import { addTray } from "./ui/tray";
+import { PortfolioProcess } from "./process/PortfolioProcess";
 import {
 	localApiCreatePortfolio,
 	localApiCreateTokenApi,
@@ -15,16 +15,16 @@ import {
 	localApiGetLastMigration,
 	localApiGetPortfolio,
 	localApiGetPortfolios,
-	localApiGetTokenApi,
-} from './IPC/portfolio/portfolioLocalApi'
-import { initPrismaClient } from './prisma/initPrismaClient'
+	localApiGetTokenApi
+} from "./IPC/portfolio/portfolioLocalApi";
+import { initPrismaClient } from "./prisma/initPrismaClient";
 import {
 	portfolioApiUpdateAll,
 	portfolioApiUpdateAllPortfolios,
 	portfolioApiUpdateExchanges,
 	portfolioApiUpdateTokens,
-	portfolioApiUpdateWallets,
-} from './IPC/portfolio/portfolioProcessApi'
+	portfolioApiUpdateWallets
+} from "./IPC/portfolio/portfolioProcessApi";
 import {
 	dbApiCreatePortfolio,
 	dbApiDeletePortfolio,
@@ -43,13 +43,13 @@ import {
 	dbApiLogin,
 	dbApiMe,
 	dbApiPing,
-	dbApiRegister,
-} from '@cryptobot/shared/src/front-desktop/main/process/dbApi.fn'
+	dbApiRegister
+} from "@cryptobot/shared/src/front-desktop/main/process/dbApi.fn";
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.whenReady().then(() => {
+void app.whenReady().then(() => {
 	// Set app user model id for windows
 	electronApp.setAppUserModelId('fr.crypto-bot')
 

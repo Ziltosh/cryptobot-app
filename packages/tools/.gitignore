@@ -1,2 +1,8 @@
 .turbo
 node_modules
+
+*.cjs
+*.mjs
+*.d.ts
+*.map
+src/**/*.js

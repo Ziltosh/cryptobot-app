@@ -1,7 +1,7 @@
-import '../../index.css'
-import React, { PropsWithChildren } from 'react'
-import { twMerge } from 'tailwind-merge'
-import { Text, TextPresets } from '../../Atoms/Text/Text'
+import "../../index.css";
+import { PropsWithChildren } from "react";
+import { twMerge } from "tailwind-merge";
+import { Text, TextPresets } from "../../Atoms/Text/Text";
 
 const presets = ['default', 'alert'] as const
 

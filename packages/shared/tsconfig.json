@@ -1,11 +1,6 @@
 {
-	"extends": "../../tsconfig.base.json",
+	"extends": "../../_config/tsconfig.base.json",
 	"compilerOptions": {
-		"lib": ["ESNext", "es2021"],
-		"outDir": "dist"
 	},
-	"ts-node": {
-		"esm": true,
-		"experimentalSpecifierResolution": "node"
-	}
+	"include": ["src"]
 }

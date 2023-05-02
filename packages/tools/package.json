@@ -3,17 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "description": "",
-  "main": "index.js",
-  "type": "module",
-  "prettier": "prettier.config.js",
+  "main": "src/index.ts",
+    "type": "module",
+  "prettier": "../../_config/prettier.config.cjs",
   "scripts": {
+    "clean": "rimraf -g -- node_modules .turbo src/**/*.d.ts src/**/*.cjs src/**/*.map src/**/*.mjs src/**/*.js",
+    "build": "tsc-multi --config ../../_config/tsc-multi.json",
     "format": "prettier --write ./src",
     "compile": "tsc"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "prettier": "^2.8.7"
-  }
+  "license": "ISC"
 }

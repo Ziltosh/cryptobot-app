@@ -1,8 +1,7 @@
-import { Sidebar } from './Sidebar'
-import { Meta, StoryFn } from '@storybook/react'
-import { Icon } from '../../Atoms/Icon/Icon'
-import { FaCalculator, FaRobot, IoMdWallet, MdAutoGraph } from 'react-icons/all'
-import React from 'react'
+import { Sidebar } from "./Sidebar";
+import { Meta, StoryFn } from "@storybook/react";
+import { Icon } from "../../Atoms/Icon/Icon";
+import { FaCalculator, FaRobot, IoMdWallet, MdAutoGraph } from "react-icons/all";
 
 export default {
 	title: 'Molecules/Sidebar',
