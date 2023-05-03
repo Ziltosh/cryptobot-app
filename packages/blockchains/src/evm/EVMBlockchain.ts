@@ -1,5 +1,5 @@
 import { config } from "dotenv-mono";
-import axios, { AxiosError, AxiosInstance } from "axios";
+import axios, { AxiosInstance } from "axios";
 import {
 	EVMBalance,
 	EVMInternalTransaction,
@@ -80,6 +80,7 @@ export class EVMBlockchain {
 		while (tries < 5) {
 			try {
 				const response = await this.instance[method]<T>(url)
+				console.log(response)
 				if (response.status !== 200) {
 					await new Promise((resolve) => setTimeout(resolve, 1000 * 2))
 					continue
@@ -92,13 +93,9 @@ export class EVMBlockchain {
 				tries++
 
 				// @ts-ignore
-				if (error instanceof AxiosError && error.message == 'Request failed with status code 429') {
-					console.error(`EVM scan (${this.api_url}) API rate limit exceeded, wait 2s`)
-					await new Promise((resolve) => setTimeout(resolve, 1000 * 2))
-				} else {
-					console.error(`EVM scan (${this.api_url}) returned status ${error}`)
-					await new Promise((resolve) => setTimeout(resolve, 10_000))
-				}
+				console.error(`EVM scan (${this.api_url}) returned status ${error}`)
+				await new Promise((resolve) => setTimeout(resolve, 10_000))
+
 			}
 		}
 
