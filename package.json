@@ -13,6 +13,7 @@
     "compile": "turbo run compile --parallel",
     "build": "turbo run build --include-dependencies",
     "dev": "turbo run dev --no-deps --include-dependencies",
+    "dev:api": "pnpm --filter @cryptobot/api run dev",
     "clean": "turbo run clean && rm -rf pnpm-lock.yaml && rm -rf node_modules"
   },
   "keywords": [],
