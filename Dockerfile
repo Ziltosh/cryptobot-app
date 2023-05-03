@@ -18,6 +18,11 @@ COPY _config ./_config
 
 RUN pnpm --filter @cryptobot/api... install
 
+WORKDIR /app/packages/db-api
+
+RUN mkdir -p /app/packages/shared/src/prisma-types/db-api/.prisma/client
+RUN pnpm prisma:generate
+
 WORKDIR /app/apps/api
 
 #
