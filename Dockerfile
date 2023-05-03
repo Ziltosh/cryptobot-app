@@ -61,4 +61,4 @@ WORKDIR /app/apps/api
 EXPOSE 3333
 ENV PORT 3333
 
-CMD [ "pnpm", "dev" ]
+CMD [ "node", "ace serve --watch" ]
