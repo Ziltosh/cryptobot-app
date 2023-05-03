@@ -1,4 +1,4 @@
-import ccxt, { BaseError, Currency, Dictionary, Exchange, Market, PartialBalances, Trade, Transaction } from 'ccxt'
+import ccxt, { BaseError, Currency, Dictionary, Exchange, Market, PartialBalances, Trade, Transaction } from "ccxt";
 
 export abstract class CcxtExchange {
 	protected static instance: Exchange
@@ -15,9 +15,11 @@ export abstract class CcxtExchange {
 	}
 
 	public async getPriceAtDate(token: string, currency: string, date: Date): Promise<number | null> {
+		console.log('getPriceAtDate > token', token, 'currency', currency, 'date', date)
 		try {
 			const symbol = this.getSymbol(token, currency)
 			const ohlcvs = await CcxtExchange.instance.fetchOHLCV(symbol, '5m', date.getTime(), 1)
+			console.log('ohlcvs', ohlcvs, 'symbol', symbol, 'date', date)
 			if (!this._checkTimestamp(ohlcvs[0][0], date.getTime())) return null
 			return ohlcvs[0][3]
 		} catch (error: BaseError | any) {

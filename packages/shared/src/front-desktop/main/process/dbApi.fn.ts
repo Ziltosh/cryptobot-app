@@ -11,11 +11,11 @@ import {
 	UserDB
 } from "../../../prisma-types/db-api";
 
-import { config, dotenvLoad } from "dotenv-mono";
-import { EVMERC20Transaction, EVMInternalTransaction, EVMNormalTransaction } from "../../../prisma-types/db-api/client";
+import { EVMERC20Transaction, EVMInternalTransaction, EVMNormalTransaction } from "@cryptobot/blockchains";
 
-const test = dotenvLoad()
-config(test)
+import { config } from "dotenv-mono";
+
+config()
 
 // console.error('process.env.API_URL', test)
 
@@ -206,6 +206,8 @@ export const dbApiGetEVMNativeTokenBalance = async ({
 	blockchain_name: string
 	userToken: string
 }): Promise<{ address: string; result: string }> => {
+	console.log('address', address, 'blockchain_name', blockchain_name, 'userToken', userToken)
+
 	const response = await fetch(`${process.env.API_URL}/balance/evm/${blockchain_name}/${address}`, {
 		headers: {
 			Authorization: `Bearer ${userToken}`,
@@ -223,6 +225,8 @@ export const dbApiHandleBalance = async ({
 	blockchain_name: string
 	userToken: string
 }): Promise<EVMBalanceTransactionDB[]> => {
+	console.log('balance', balance, 'blockchain_name', blockchain_name, 'userToken', userToken)
+
 	const response = await fetch(`${process.env.API_URL}/transaction/evm/balance/${blockchain_name}/handle`, {
 		method: 'POST',
 		headers: {

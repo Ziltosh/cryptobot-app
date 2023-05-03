@@ -12,7 +12,8 @@
     "format": "turbo run format --parallel",
     "compile": "turbo run compile --parallel",
     "build": "turbo run build --include-dependencies",
-    "dev": "turbo run dev --no-deps --include-dependencies",
+    "dev:local": "turbo run dev --no-deps --include-dependencies",
+    "dev:prod": "turbo run dev --filter=\"!./apps/api\"",
     "dev:api": "pnpm --filter @cryptobot/api run dev",
     "clean": "turbo run clean && rm -rf pnpm-lock.yaml && rm -rf node_modules"
   },

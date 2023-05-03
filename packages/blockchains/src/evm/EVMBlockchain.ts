@@ -1,12 +1,12 @@
-import { config } from 'dotenv-mono'
-import axios, { AxiosError, AxiosInstance } from 'axios'
+import { config } from "dotenv-mono";
+import axios, { AxiosError, AxiosInstance } from "axios";
 import {
 	EVMBalance,
 	EVMInternalTransaction,
 	EVMInternalTransactionResponse,
 	EVMNormalTransaction,
-	EVMNormalTransactionResponse,
-} from './EVMBlockchain.types'
+	EVMNormalTransactionResponse
+} from "./EVMBlockchain.types";
 
 config()
 
@@ -70,7 +70,7 @@ export class EVMBlockchain {
 		url = url.replace(':startBlock', args?.startBlock?.toString() || '')
 		url += `&apikey=${this.api_key}`
 
-		console.log(`EVM API request: ${url}`)
+		console.log(`EVM API request: ${this.api_url}${url}`)
 
 		let tries = 0
 
@@ -99,6 +99,6 @@ export class EVMBlockchain {
 			}
 		}
 
-		throw new Error(`Coingecko API request failed after ${tries} tries`)
+		throw new Error(`EVM Blockchains (${this.api_url}) API request failed after ${tries} tries`)
 	}
 }

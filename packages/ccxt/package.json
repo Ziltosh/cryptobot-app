@@ -19,7 +19,7 @@
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
-		"ccxt": "^3.0.77",
+		"ccxt": "^3.0.90",
 		"@cryptobot/shared": "workspace:*"
 	},
 	"devDependencies": {
